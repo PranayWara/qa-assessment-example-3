@@ -1,3 +1,5 @@
+import math
+
 # <QUESTION 1>
 
 # Given a list of items, return a dictionary mapping items to the amount
@@ -11,7 +13,17 @@
 # one(['tic', 'tac', 'toe']) → {'tic':1, 'tac':1, 'toe':1}
     
 def one(items):
-    pass
+    result = {}
+    for item in set(items):
+        result[item] = items.count(item)
+    return result
+#     my_dict = dict()
+#     for index, key in enumerate(items):
+#         key = index.count
+#         my_dict[key] = index
+#     return my_dict
+
+# print(one(['apple', 'banana', 'orange', 'orange', 'apple', 'apple']))
 
 # <QUESTION 2>
 
@@ -28,7 +40,14 @@ def one(items):
 # two(-5, 2, '/') → -2.5
 
 def two(a, b, operator):
-    pass
+    if operator == '+':
+        return (a+b)
+    elif operator == '-':
+        return (a-b)
+    elif operator == '*':
+        return (a*b)
+    else:
+        return (a/b)
 
 # <QUESTION 3>
 
@@ -48,7 +67,8 @@ def two(a, b, operator):
 # We can use `x ** 0.5` to get the square root of `x`
 
 def three(num):
-    pass
+    return int(num ** 0.5)**2
+
 
 # <QUESTION 4>
 
@@ -61,7 +81,7 @@ def three(num):
 # four(10, 50) → 10
 
 def four(a, b):
-    pass
+    return (math.gcd(a,b))
 
 # <QUESTION 5>
 
@@ -81,4 +101,10 @@ def four(a, b):
 # five('54321') → '54321'
 
 def five(string):
-    pass
+    result = ''
+    for char in string:
+        if char.isalpha():
+            char = {'a':'z', 'A':'Z'}.get(char, chr( ord(char)-1 ))
+        
+        result += char
+    return result
